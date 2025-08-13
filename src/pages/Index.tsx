@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Search, Settings, Activity, Thermometer, Heart, Wind } from "lucide-react";
+import { Search, Settings, Activity, Thermometer, Heart, Wind, MoreHorizontal } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { PatientCard } from "@/components/PatientCard";
@@ -78,37 +77,79 @@ const Index = () => {
       age: new Date().getFullYear() - new Date(patientData.date_of_birth).getFullYear(),
       profilePicture: patientData.profile_picture,
       isSelected: true
+    },
+    {
+      name: "Samantha Johnson",
+      gender: "Female",
+      age: 56,
+      profilePicture: "",
+      isSelected: false
+    },
+    {
+      name: "Ashley Martinez",
+      gender: "Female",
+      age: 54,
+      profilePicture: "",
+      isSelected: false
+    },
+    {
+      name: "Olivia Brown",
+      gender: "Female",
+      age: 32,
+      profilePicture: "",
+      isSelected: false
+    },
+    {
+      name: "Tyler Davis",
+      gender: "Male",
+      age: 19,
+      profilePicture: "",
+      isSelected: false
+    },
+    {
+      name: "Kevin Anderson",
+      gender: "Male",
+      age: 30,
+      profilePicture: "",
+      isSelected: false
+    },
+    {
+      name: "Dylan Thompson",
+      gender: "Male",
+      age: 36,
+      profilePicture: "",
+      isSelected: false
     }
   ];
 
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-card border-b px-6 py-4">
+      <header className="bg-card border-b px-8 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-primary rounded flex items-center justify-center">
-                <Activity className="h-5 w-5 text-primary-foreground" />
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                <Activity className="h-6 w-6 text-primary-foreground" />
               </div>
-              <span className="text-xl font-bold">Tech.Care</span>
+              <span className="text-2xl font-bold">Tech.Care</span>
             </div>
           </div>
           
-          <nav className="hidden md:flex items-center gap-8">
-            <button className="text-muted-foreground hover:text-foreground px-4 py-2 rounded-lg">
+          <nav className="hidden md:flex items-center gap-6">
+            <button className="flex items-center gap-2 text-muted-foreground hover:text-foreground px-4 py-2">
               🏠 Overview
             </button>
-            <button className="text-primary font-medium bg-primary/10 px-4 py-2 rounded-lg flex items-center gap-2">
+            <button className="flex items-center gap-2 text-white bg-primary px-6 py-2 rounded-full font-medium">
               👥 Patients
             </button>
-            <button className="text-muted-foreground hover:text-foreground px-4 py-2 rounded-lg">
+            <button className="flex items-center gap-2 text-muted-foreground hover:text-foreground px-4 py-2">
               📅 Schedule
             </button>
-            <button className="text-muted-foreground hover:text-foreground px-4 py-2 rounded-lg">
+            <button className="flex items-center gap-2 text-muted-foreground hover:text-foreground px-4 py-2">
               💬 Message
             </button>
-            <button className="text-muted-foreground hover:text-foreground px-4 py-2 rounded-lg">
+            <button className="flex items-center gap-2 text-muted-foreground hover:text-foreground px-4 py-2">
               💳 Transactions
             </button>
           </nav>
@@ -116,17 +157,17 @@ const Index = () => {
           <div className="flex items-center gap-4">
             <Avatar className="h-11 w-11">
               <AvatarImage src="" alt="Dr. Jose Simmons" />
-              <AvatarFallback>JS</AvatarFallback>
+              <AvatarFallback className="bg-muted">JS</AvatarFallback>
             </Avatar>
             <div className="hidden md:block">
-              <p className="font-medium text-sm">Dr. Jose Simmons</p>
+              <p className="font-bold text-sm">Dr. Jose Simmons</p>
               <p className="text-xs text-muted-foreground">General Practitioner</p>
             </div>
             <button className="p-2 hover:bg-muted rounded">
               <Settings className="h-5 w-5 text-muted-foreground" />
             </button>
             <button className="p-2 hover:bg-muted rounded">
-              <span className="text-lg">⋮</span>
+              <MoreHorizontal className="h-5 w-5 text-muted-foreground" />
             </button>
           </div>
         </div>
@@ -134,12 +175,12 @@ const Index = () => {
 
       <div className="flex">
         {/* Sidebar - Patient List */}
-        <aside className="w-[367px] bg-card border-r h-[calc(100vh-80px)] overflow-y-auto">
+        <aside className="w-[367px] bg-card border-r h-[calc(100vh-89px)] overflow-y-auto">
           <div className="p-5">
             <div className="flex items-center justify-between mb-8">
               <h2 className="text-2xl font-bold">Patients</h2>
               <button className="p-2 hover:bg-muted rounded">
-                <Search className="h-5 w-5 text-muted-foreground" />
+                <Search className="h-6 w-6 text-muted-foreground" />
               </button>
             </div>
             
@@ -167,7 +208,7 @@ const Index = () => {
                 <CardHeader className="pb-4">
                   <div className="flex items-center justify-between">
                     <CardTitle className="text-2xl font-bold">Diagnosis History</CardTitle>
-                    <select
+                    <select 
                       value={selectedTimeframe}
                       onChange={(e) => setSelectedTimeframe(e.target.value)}
                       className="text-sm border border-border rounded-lg px-4 py-2 bg-background font-medium"
@@ -180,34 +221,34 @@ const Index = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="mb-6">
-                    <h3 className="text-lg font-semibold mb-4">Blood Pressure</h3>
+                    <h3 className="text-lg font-bold mb-4">Blood Pressure</h3>
                     <div className="flex items-center gap-6 mb-4">
                       <div className="flex items-center gap-2">
                         <div className="w-3 h-3 rounded-full bg-chart-systolic"></div>
-                        <span className="text-sm">Systolic</span>
+                        <span className="text-sm font-medium">Systolic</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <div className="w-3 h-3 rounded-full bg-chart-diastolic"></div>
-                        <span className="text-sm">Diastolic</span>
+                        <span className="text-sm font-medium">Diastolic</span>
                       </div>
                     </div>
                     <BloodPressureChart data={chartData} />
                   </div>
                   
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
+                  <div className="grid grid-cols-2 gap-8 text-left">
                     <div>
-                      <div className="text-2xl font-bold text-chart-systolic">
+                      <div className="text-2xl font-bold text-chart-systolic mb-1">
                         {latestVitals.blood_pressure.systolic.value}
                       </div>
-                      <div className="text-sm text-muted-foreground">Systolic</div>
-                      <div className="text-sm">{latestVitals.blood_pressure.systolic.levels}</div>
+                      <div className="text-sm text-muted-foreground mb-1">Systolic</div>
+                      <div className="text-sm font-medium">↑ {latestVitals.blood_pressure.systolic.levels}</div>
                     </div>
                     <div>
-                      <div className="text-2xl font-bold text-chart-diastolic">
+                      <div className="text-2xl font-bold text-chart-diastolic mb-1">
                         {latestVitals.blood_pressure.diastolic.value}
                       </div>
-                      <div className="text-sm text-muted-foreground">Diastolic</div>
-                      <div className="text-sm">{latestVitals.blood_pressure.diastolic.levels}</div>
+                      <div className="text-sm text-muted-foreground mb-1">Diastolic</div>
+                      <div className="text-sm font-medium">↓ {latestVitals.blood_pressure.diastolic.levels}</div>
                     </div>
                   </div>
                 </CardContent>
@@ -216,7 +257,7 @@ const Index = () => {
               {/* Vital Signs Cards */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <VitalCard
-                  icon={<Wind className="h-6 w-6" />}
+                  icon={<Wind className="h-8 w-8" />}
                   title="Respiratory Rate"
                   value={latestVitals.respiratory_rate.value.toString()}
                   unit="bpm"
@@ -225,7 +266,7 @@ const Index = () => {
                   iconColor="text-health-respiratory-foreground"
                 />
                 <VitalCard
-                  icon={<Thermometer className="h-6 w-6" />}
+                  icon={<Thermometer className="h-8 w-8" />}
                   title="Temperature"
                   value={latestVitals.temperature.value.toString()}
                   unit="°F"
@@ -234,7 +275,7 @@ const Index = () => {
                   iconColor="text-health-temperature-foreground"
                 />
                 <VitalCard
-                  icon={<Heart className="h-6 w-6" />}
+                  icon={<Heart className="h-8 w-8 fill-current" />}
                   title="Heart Rate"
                   value={latestVitals.heart_rate.value.toString()}
                   unit="bpm"
@@ -249,70 +290,74 @@ const Index = () => {
             </div>
 
             {/* Right Sidebar - Patient Profile */}
-            <div className="space-y-6">
-              <Card>
+            <div className="space-y-8">
+              <Card className="border-0 shadow-sm">
                 <CardContent className="p-6 text-center">
-                  <Avatar className="h-32 w-32 mx-auto mb-4">
+                  <Avatar className="h-48 w-48 mx-auto mb-6">
                     <AvatarImage src={patientData.profile_picture} alt={patientData.name} />
-                    <AvatarFallback className="text-2xl">
+                    <AvatarFallback className="text-4xl bg-muted">
                       {patientData.name.split(' ').map(n => n[0]).join('')}
                     </AvatarFallback>
                   </Avatar>
-                  <h3 className="text-xl font-bold mb-6">{patientData.name}</h3>
+                  <h3 className="text-2xl font-bold mb-8">{patientData.name}</h3>
                   
-                  <div className="space-y-4 text-left">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-muted rounded-full flex items-center justify-center">
+                  <div className="space-y-6 text-left">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center">
                         📅
                       </div>
                       <div>
                         <p className="text-sm text-muted-foreground">Date Of Birth</p>
-                        <p className="font-medium">{new Date(patientData.date_of_birth).toLocaleDateString()}</p>
+                        <p className="font-bold">{new Date(patientData.date_of_birth).toLocaleDateString('en-US', { 
+                          year: 'numeric', 
+                          month: 'long', 
+                          day: 'numeric' 
+                        })}</p>
                       </div>
                     </div>
                     
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-muted rounded-full flex items-center justify-center">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center">
                         👤
                       </div>
                       <div>
                         <p className="text-sm text-muted-foreground">Gender</p>
-                        <p className="font-medium">{patientData.gender}</p>
+                        <p className="font-bold">{patientData.gender}</p>
                       </div>
                     </div>
                     
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-muted rounded-full flex items-center justify-center">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center">
                         📞
                       </div>
                       <div>
                         <p className="text-sm text-muted-foreground">Contact Info.</p>
-                        <p className="font-medium">{patientData.phone_number}</p>
+                        <p className="font-bold">{patientData.phone_number}</p>
                       </div>
                     </div>
                     
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-muted rounded-full flex items-center justify-center">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center">
                         📞
                       </div>
                       <div>
                         <p className="text-sm text-muted-foreground">Emergency Contacts</p>
-                        <p className="font-medium">{patientData.emergency_contact}</p>
+                        <p className="font-bold">{patientData.emergency_contact}</p>
                       </div>
                     </div>
                     
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-muted rounded-full flex items-center justify-center">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center">
                         🏥
                       </div>
                       <div>
                         <p className="text-sm text-muted-foreground">Insurance Provider</p>
-                        <p className="font-medium">{patientData.insurance_type}</p>
+                        <p className="font-bold">{patientData.insurance_type}</p>
                       </div>
                     </div>
                   </div>
                   
-                  <Button className="w-full mt-6 bg-primary hover:bg-primary/90">
+                  <Button className="w-full mt-8 bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-full">
                     Show All Information
                   </Button>
                 </CardContent>
