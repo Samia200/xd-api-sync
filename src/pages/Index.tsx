@@ -96,37 +96,54 @@ const Index = () => {
           </div>
           
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#" className="text-muted-foreground hover:text-foreground">Overview</a>
-            <a href="#" className="text-primary font-medium bg-primary/10 px-4 py-2 rounded-full">Patients</a>
-            <a href="#" className="text-muted-foreground hover:text-foreground">Schedule</a>
-            <a href="#" className="text-muted-foreground hover:text-foreground">Message</a>
-            <a href="#" className="text-muted-foreground hover:text-foreground">Transactions</a>
+            <button className="text-muted-foreground hover:text-foreground px-4 py-2 rounded-lg">
+              🏠 Overview
+            </button>
+            <button className="text-primary font-medium bg-primary/10 px-4 py-2 rounded-lg flex items-center gap-2">
+              👥 Patients
+            </button>
+            <button className="text-muted-foreground hover:text-foreground px-4 py-2 rounded-lg">
+              📅 Schedule
+            </button>
+            <button className="text-muted-foreground hover:text-foreground px-4 py-2 rounded-lg">
+              💬 Message
+            </button>
+            <button className="text-muted-foreground hover:text-foreground px-4 py-2 rounded-lg">
+              💳 Transactions
+            </button>
           </nav>
 
           <div className="flex items-center gap-4">
-            <Avatar className="h-10 w-10">
+            <Avatar className="h-11 w-11">
               <AvatarImage src="" alt="Dr. Jose Simmons" />
               <AvatarFallback>JS</AvatarFallback>
             </Avatar>
             <div className="hidden md:block">
-              <p className="font-medium">Dr. Jose Simmons</p>
-              <p className="text-sm text-muted-foreground">General Practitioner</p>
+              <p className="font-medium text-sm">Dr. Jose Simmons</p>
+              <p className="text-xs text-muted-foreground">General Practitioner</p>
             </div>
-            <Settings className="h-5 w-5 text-muted-foreground" />
+            <button className="p-2 hover:bg-muted rounded">
+              <Settings className="h-5 w-5 text-muted-foreground" />
+            </button>
+            <button className="p-2 hover:bg-muted rounded">
+              <span className="text-lg">⋮</span>
+            </button>
           </div>
         </div>
       </header>
 
       <div className="flex">
         {/* Sidebar - Patient List */}
-        <aside className="w-80 bg-card border-r h-[calc(100vh-80px)] overflow-y-auto">
-          <div className="p-6">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold">Patients</h2>
-              <Search className="h-5 w-5 text-muted-foreground" />
+        <aside className="w-[367px] bg-card border-r h-[calc(100vh-80px)] overflow-y-auto">
+          <div className="p-5">
+            <div className="flex items-center justify-between mb-8">
+              <h2 className="text-2xl font-bold">Patients</h2>
+              <button className="p-2 hover:bg-muted rounded">
+                <Search className="h-5 w-5 text-muted-foreground" />
+              </button>
             </div>
             
-            <div className="space-y-2">
+            <div className="space-y-1">
               {patients.map((patient, index) => (
                 <PatientCard
                   key={index}
@@ -142,18 +159,18 @@ const Index = () => {
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 p-6">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <main className="flex-1 p-5">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Diagnosis History */}
-            <div className="lg:col-span-2 space-y-6">
-              <Card>
-                <CardHeader>
+            <div className="lg:col-span-2 space-y-8">
+              <Card className="border-0 shadow-sm">
+                <CardHeader className="pb-4">
                   <div className="flex items-center justify-between">
-                    <CardTitle>Diagnosis History</CardTitle>
-                    <select 
+                    <CardTitle className="text-2xl font-bold">Diagnosis History</CardTitle>
+                    <select
                       value={selectedTimeframe}
                       onChange={(e) => setSelectedTimeframe(e.target.value)}
-                      className="text-sm border border-border rounded px-3 py-1 bg-background"
+                      className="text-sm border border-border rounded-lg px-4 py-2 bg-background font-medium"
                     >
                       <option>Last 6 months</option>
                       <option>Last year</option>

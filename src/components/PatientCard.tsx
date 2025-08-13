@@ -11,16 +11,16 @@ interface PatientCardProps {
 
 export const PatientCard = ({ name, gender, age, profilePicture, isSelected }: PatientCardProps) => {
   return (
-    <div className={`flex items-center justify-between p-4 rounded-lg cursor-pointer transition-colors ${
-      isSelected ? 'bg-primary/10 border-l-4 border-l-primary' : 'hover:bg-muted/50'
+    <div className={`flex items-center justify-between p-4 rounded-xl cursor-pointer transition-colors ${
+      isSelected ? 'bg-primary/5 border-l-4 border-l-primary' : 'hover:bg-muted/30'
     }`}>
       <div className="flex items-center gap-3">
         <Avatar className="h-12 w-12">
           <AvatarImage src={profilePicture} alt={name} />
-          <AvatarFallback>{name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+          <AvatarFallback className="text-sm font-medium">{name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
         </Avatar>
         <div>
-          <p className="font-semibold text-foreground">{name}</p>
+          <p className="font-bold text-foreground text-sm">{name}</p>
           <p className="text-sm text-muted-foreground">{gender}, {age}</p>
         </div>
       </div>

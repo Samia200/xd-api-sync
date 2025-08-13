@@ -39,11 +39,11 @@ All colors MUST be HSL.
     --radius: 0.75rem;
 
     /* Healthcare specific colors */
-    --health-respiratory: 195 85% 85%;
-    --health-respiratory-foreground: 195 70% 35%;
-    --health-temperature: 350 85% 85%;
+    --health-respiratory: 180 100% 95%;
+    --health-respiratory-foreground: 180 70% 35%;
+    --health-temperature: 350 100% 95%;
     --health-temperature-foreground: 350 70% 35%;
-    --health-heart: 340 85% 85%;
+    --health-heart: 340 100% 95%;
     --health-heart-foreground: 340 70% 35%;
     
     /* Status colors */

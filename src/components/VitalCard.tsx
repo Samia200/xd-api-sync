@@ -13,19 +13,19 @@ interface VitalCardProps {
 
 export const VitalCard = ({ icon, title, value, unit, status, bgColor, iconColor }: VitalCardProps) => {
   return (
-    <Card className={`${bgColor} border-0`}>
-      <CardContent className="p-6">
-        <div className="flex flex-col items-center text-center space-y-3">
-          <div className={`p-3 rounded-full ${iconColor}`}>
+    <Card className={`${bgColor} border-0 rounded-xl`}>
+      <CardContent className="p-4">
+        <div className="flex items-center gap-4">
+          <div className={`p-3 rounded-full ${iconColor} bg-white/80`}>
             {icon}
           </div>
-          <div>
-            <p className="text-sm font-medium text-muted-foreground">{title}</p>
-            <p className="text-2xl font-bold">
+          <div className="flex-1">
+            <p className="text-sm font-medium text-gray-600 mb-1">{title}</p>
+            <p className="text-3xl font-bold text-gray-800">
               {value}
-              <span className="text-lg text-muted-foreground ml-1">{unit}</span>
+              <span className="text-lg text-gray-600 ml-1">{unit}</span>
             </p>
-            <p className="text-sm text-muted-foreground mt-1">{status}</p>
+            <p className="text-sm text-gray-600 mt-1">{status}</p>
           </div>
         </div>
       </CardContent>
