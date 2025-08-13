@@ -129,10 +129,7 @@ const Index = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <Activity className="h-6 w-6 text-primary-foreground" />
-              </div>
-              <span className="text-2xl font-bold">Tech.Care</span>
+              <img src="../assets/TestLogo.png" alt="Tech.Care Logo" className="h-8 w-auto" />
             </div>
           </div>
           
