@@ -61,6 +61,23 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				health: {
+					respiratory: 'hsl(var(--health-respiratory))',
+					'respiratory-foreground': 'hsl(var(--health-respiratory-foreground))',
+					temperature: 'hsl(var(--health-temperature))',
+					'temperature-foreground': 'hsl(var(--health-temperature-foreground))',
+					heart: 'hsl(var(--health-heart))',
+					'heart-foreground': 'hsl(var(--health-heart-foreground))'
+				},
+				status: {
+					normal: 'hsl(var(--status-normal))',
+					warning: 'hsl(var(--status-warning))',
+					critical: 'hsl(var(--status-critical))'
+				},
+				chart: {
+					systolic: 'hsl(var(--chart-systolic))',
+					diastolic: 'hsl(var(--chart-diastolic))'
 				}
 			},
 			borderRadius: {
